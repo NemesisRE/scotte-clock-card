@@ -85,7 +85,7 @@ class ClockCard extends Polymer.Element {
       setTimeout(() => this.init(), 200);
       return;
     }
-    moment().locale('nl');
+    moment().locale(this._hass.language);
   }
 
   _updateTime(force = true) {
