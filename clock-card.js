@@ -77,18 +77,14 @@ class ClockCard extends Polymer.Element {
   
   set hass(hass) {
     this._hass = hass;
-    this.init();
   }
 
-  init() {
+  _updateTime(force = true) { 
     if(typeof(moment) == "undefined") {
       setTimeout(() => this.init(), 200);
       return;
     }
     moment().locale(this._hass.language);
-  }
-
-  _updateTime(force = true) {
     this.time.innerHTML = moment().format('LTS');
     this.date.innerHTML = moment().format('ddd DD/MM/YYYY');
   }
