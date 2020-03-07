@@ -80,9 +80,6 @@ class ClockCard extends Polymer.Element {
   }
 
   _updateTime(force = true) { 
-    let moment = require('moment');
-    require('locale/nl.js');
-	  
     if(typeof(moment) == "undefined") {
       setTimeout(() => this._updateTime(), 200);
       return;
