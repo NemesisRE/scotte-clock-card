@@ -17,6 +17,7 @@ class ClockCard extends Polymer.Element {
 		    width:92px;
         }
         .time {
+	  text-align: center
           font-family: var(--paper-font-headline_-_font-family);
           -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing);
           font-size: 3em;
@@ -25,23 +26,12 @@ class ClockCard extends Polymer.Element {
           line-height: 1em;
           text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);
         }
-        .date {
-	      color: var(--accent-color);
-          font-family: var(--paper-font-headline_-_font-family);
-          -webkit-font-smoothing: var(--paper-font-headline_-_-webkit-font-smoothing);
-          font-size: 1.3em;
-          font-weight: var(--paper-font-headline_-_font-weight);
-          letter-spacing: var(--paper-font-headline_-_letter-spacing);
-          line-height: var(--paper-font-headline_-_line-height);
-          text-rendering: var(--paper-font-common-expensive-kerning_-_text-rendering);
-        }
       </style>
       <ha-card>
         <div class="content">
 	      <div class="gtlogo"></div>
 	      <div class="clock">
-		    <div class="time" id="time">3:45 PM</div>
-		    <div class="date" id="date">Wednesday, December 3</div>
+		    <div class="time" id="time">13:45</div>
 	      </div>
         </div>
       </ha-card>
@@ -74,8 +64,7 @@ class ClockCard extends Polymer.Element {
   _updateTime() {
     var time = new Date();
 
-    this.time.innerHTML = time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: 'numeric'});
-    this.date.innerHTML = time.toLocaleDateString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+    this.time.innerHTML = time.toLocaleTimeString('de-DE', {hour12: false, hour: 'numeric', minute: 'numeric'});
   }
 
   // The height of your card. Home Assistant uses this to automatically
@@ -85,4 +74,4 @@ class ClockCard extends Polymer.Element {
   }
 }
 
-customElements.define('scotte-clock-card', ClockCard);
+customElements.define('simple-clock-card', ClockCard);
